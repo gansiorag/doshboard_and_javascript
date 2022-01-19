@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Add a bit of text -->
+    <p>This is my first sentence</p>
+
+    <!-- Add a svg shape. Note that the 'target' class is attributed to the circle -->
+    <svg>
+        <svg id="dataviz_area" height=800 width=750></svg>
+    </svg>
+    <script src="/node_modules/d3/dist/d3.js"></script>
+    <script>
+        var svg = d3.select("#dataviz_area")
+        svg.append("circle").attr("cx", 2).attr("cy", 2).attr("r", 40).style("fill", "blue");
+        svg.append("circle").attr("cx", 70).attr("cy", 100).attr("r", 40).style("fill", "red");
+        svg.append("circle").attr("cx", 200).attr("cy", 150).attr("r", 40).style("fill", "green");
+    </script>
+</body>
+Highcharts.chart({
+    chart: {
+        type: "column",
+        renderTo: w.general.renderTo
+    },
+    xAxis: {
+        categories: [
+            "Янв",
+            "Фев",
+            "Мар",
+            "Апр",
+            "Май",
+            "Июн",
+            "Июл",
+            "Авг",
+            "Сен",
+            "Окт",
+            "Ноя",
+            "Дек"
+        ],
+        crosshair: true
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: null
+        }
+    },
+    plotOptions: {
+        column: {
+            pointPadding: 0.2,
+            borderWidth: 0
+        }
+    },
+    series: [
+        {
+            name: "Мера 1",
+            data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+        },
+        {
+            name: "Мера 2",
+            data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
+        }]
+});
+</html>
